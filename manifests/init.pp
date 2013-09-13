@@ -22,5 +22,10 @@
 # See file LICENSE for details
 # 
 class php {
+
+# Rationale for this is explained in init.pp of the sshd module
+if hiera('manage_php') != 'false' {
+
     include php::install
+}
 }
