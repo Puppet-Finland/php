@@ -1,5 +1,5 @@
 #
-# == Class: php::install::ḿmysql
+# == Class: php::install::mysql
 #
 # Install php mysql bindings
 #
