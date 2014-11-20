@@ -9,11 +9,12 @@
 #
 # == Examples
 #
-# include php
+#   include php
 #
 # == Authors
 #
 # Samuli Seppänen <samuli.seppanen@gmail.com>
+#
 # Samuli Seppänen <samuli@openvpn.net>
 #
 # == License
