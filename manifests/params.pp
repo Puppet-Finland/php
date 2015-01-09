@@ -25,13 +25,7 @@ class php::params {
             $php_pgsql_package_name = 'php5-pgsql'
         }
         default: {
-            $php_package_name = 'php5'
-            $php_ldap_package_name = 'php5-ldap'
-            $php_mysql_package_name = 'php5-mysql'
-            $php_imap_package_name = 'php5-imap'
-            $php_gettext_package_name = 'php-gettext'
-            $php_gd_package_name = 'php5-gd'
-            $php_pgsql_package_name = 'php5-pgsql'
+            fail("Unsupported OS: ${::osfamily}")
         }
     }
 }
