@@ -14,6 +14,7 @@ class php::params {
             $php_gettext_package_name = 'php-php-gettext'
             $php_gd_package_name = 'php-gd'
             $php_pgsql_package_name = 'php-pgsql'
+            $php_xcache_package_name = 'php-xcache'
         }
         'Debian': {
             $php_package_name = 'php5'
@@ -23,6 +24,7 @@ class php::params {
             $php_gettext_package_name = 'php-gettext'
             $php_gd_package_name = 'php5-gd'
             $php_pgsql_package_name = 'php5-pgsql'
+            $php_xcache_package_name = 'php5-xcache'
         }
         default: {
             fail("Unsupported OS: ${::osfamily}")
