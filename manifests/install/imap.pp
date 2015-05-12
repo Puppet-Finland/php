@@ -5,11 +5,11 @@
 #
 class php::install::imap {
 
-    include php::params
+    include ::php::params
 
     package { 'php-php5-imap':
-        name => $php::params::php_imap_package_name,
-        ensure => installed,
+        ensure  => installed,
+        name    => $::php::params::php_imap_package_name,
         require => Class['php::install'],
-    }        
+    }
 }

@@ -5,11 +5,11 @@
 #
 class php::install::xcache {
 
-    include php::params
+    include ::php::params
 
     package { 'php-php5-xcache':
-        name => $::php::params::php_xcache_package_name,
-        ensure => installed,
+        ensure  => installed,
+        name    => $::php::params::php_xcache_package_name,
         require => Class['php::install'],
-    }        
+    }
 }

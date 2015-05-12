@@ -5,7 +5,8 @@
 #
 # == Parameters
 #
-# None at the moment
+# [*manage*]
+#   Manage php using Puppet. Valid values are 'yes' (default) and 'no'.
 #
 # == Examples
 #
@@ -22,11 +23,13 @@
 # BSD-lisence
 # See file LICENSE for details
 # 
-class php {
+class php
+(
+    $manage = 'yes'
+)
+{
 
-# Rationale for this is explained in init.pp of the sshd module
-if hiera('manage_php', 'true') != 'false' {
-
-    include php::install
+if $manage {
+    include ::php::install
 }
 }

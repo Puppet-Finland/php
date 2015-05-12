@@ -5,11 +5,11 @@
 #
 class php::install::mysql {
 
-    include php::params
+    include ::php::params
 
     package { 'php-php5-mysql':
-        name => $::php::params::php_mysql_package_name,
-        ensure => installed,
+        ensure  => installed,
+        name    => $::php::params::php_mysql_package_name,
         require => Class['php::install'],
-    }        
+    }
 }

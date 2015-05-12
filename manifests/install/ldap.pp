@@ -5,11 +5,11 @@
 #
 class php::install::ldap {
 
-    include php::params
+    include ::php::params
 
     package { 'php-php5-ldap':
-        name => $php::params::php_ldap_package_name,
-        ensure => installed,
+        ensure  => installed,
+        name    => $::php::params::php_ldap_package_name,
         require => Class['php::install'],
-    }        
+    }
 }

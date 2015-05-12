@@ -5,10 +5,10 @@
 #
 class php::install {
 
-    include php::params
+    include ::php::params
 
     package { 'php-php5':
-        name => $php::params::php_package_name,
         ensure => installed,
-    }        
+        name   => $::php::params::php_package_name,
+    }
 }

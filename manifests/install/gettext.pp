@@ -5,11 +5,11 @@
 #
 class php::install::gettext {
 
-    include php::params
+    include ::php::params
 
     package { 'php-php-gettext':
-        name => "${::php::params::php_gettext_package_name}",
-        ensure => installed,
+        ensure  => installed,
+        name    => $::php::params::php_gettext_package_name,
         require => Class['php::install'],
-    }        
+    }
 }

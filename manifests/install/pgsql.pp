@@ -5,11 +5,11 @@
 #
 class php::install::pgsql {
 
-    include php::params
+    include ::php::params
 
     package { 'php-php5-pgsql':
-        name => "${::php::params::php_pgsql_package_name}",
-        ensure => installed,
+        ensure  => installed,
+        name    => $::php::params::php_pgsql_package_name,
         require => Class['php::install'],
-    }        
+    }
 }

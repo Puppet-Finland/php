@@ -5,11 +5,11 @@
 #
 class php::install::gd {
 
-    include php::params
+    include ::php::params
 
     package { 'php-php5-gd':
-        name => "${::php::params::php_gd_package_name}",
-        ensure => installed,
+        ensure  => installed,
+        name    => $::php::params::php_gd_package_name,
         require => Class['php::install'],
-    }        
+    }
 }

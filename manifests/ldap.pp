@@ -4,6 +4,6 @@
 # A convenience class to be used for requires and in node definitions
 #
 class php::ldap {
-    include php
-    include php::install::ldap
+    include ::php
+    include ::php::install::ldap
 }
