@@ -8,6 +8,9 @@
 # [*manage*]
 #   Manage php using Puppet. Valid values are 'yes' (default) and 'no'.
 #
+# [*config*]
+#   Configuration parameters to override. A hash of 'param_name' => 'value' pairs.
+#
 # == Examples
 #
 #   include php
@@ -25,11 +28,14 @@
 # 
 class php
 (
-    $manage = 'yes'
+    $manage = 'yes',
+    $config = {},
 )
 {
 
 if $manage {
     include ::php::install
+    include ::php::config
 }
+
 }

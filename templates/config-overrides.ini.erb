@@ -1,0 +1,6 @@
+; This file is managed by Puppet
+;
+; Puppet-defined configuration overrides
+<% @config_overrides.each_pair do |key, value| -%>
+<%= key %>=<%= value %>
+<% end -%>
