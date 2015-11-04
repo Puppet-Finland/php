@@ -6,14 +6,13 @@
 # == Parameters
 #
 # [*manage*]
-#   Manage php using Puppet. Valid values are 'yes' (default) and 'no'.
-#
+#   Manage php using Puppet. Valid values are true (default) and false.
 # [*config*]
 #   Configuration parameters to override. A hash of 'param_name' => 'value' pairs.
 #
 # == Examples
 #
-#   include php
+#   include ::php
 #
 # == Authors
 #
@@ -23,19 +22,22 @@
 #
 # == License
 #
-# BSD-lisence
+# BSD-license
+#
 # See file LICENSE for details
 # 
 class php
 (
-    $manage = 'yes',
-    $config = {},
+    $manage = true,
+    $config = {}
 )
 {
+    validate_bool($manage)
 
-if $manage {
-    include ::php::install
-    include ::php::config
-}
-
+    if $manage {
+        include ::php::install
+        class { '::php::config':
+            config => $config,
+        }
+    }
 }
