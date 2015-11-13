@@ -7,14 +7,18 @@
 #
 # [*manage*]
 #   Manage php using Puppet. Valid values are true (default) and false.
-# [*config*]
-#   Configuration parameters to override. A hash of 'param_name' => 'value' pairs.
+# [*config_overrides*]
+#   Configuration parameters to override. A hash of 'param_name' => 'value' 
+#   pairs. Default value is undef. Note that this mechanism is limited to Ubuntu 
+#   Trusty.
 #
 # == Examples
 #
 #   include ::php
 #
 # == Authors
+#
+# Mikko Vilpponen <vilpponen@protecomp.fi>
 #
 # Samuli Seppänen <samuli.seppanen@gmail.com>
 #
@@ -29,7 +33,7 @@
 class php
 (
     $manage = true,
-    $config = {}
+    $config_overrides = undef
 )
 {
     validate_bool($manage)
@@ -37,7 +41,7 @@ class php
     if $manage {
         include ::php::install
         class { '::php::config':
-            config => $config,
+            config_overrides => $config_overrides,
         }
     }
 }
