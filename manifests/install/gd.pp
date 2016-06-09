@@ -7,7 +7,7 @@ class php::install::gd {
 
     include ::php::params
 
-    package { 'php-php5-gd':
+    package { 'php-php-gd':
         ensure  => installed,
         name    => $::php::params::php_gd_package_name,
         require => Class['php::install'],

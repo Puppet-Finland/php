@@ -17,14 +17,20 @@ class php::params {
             $php_xcache_package_name = 'php-xcache'
         }
         'Debian': {
-            $php_package_name = 'php5'
-            $php_ldap_package_name = 'php5-ldap'
-            $php_mysql_package_name = 'php5-mysql'
-            $php_imap_package_name = 'php5-imap'
+            $basename = $::lsbdistcodename ? {
+                /(xenial)/ => 'php',
+                default    => 'php5',
+            }
+            $php_package_name = $basename
+            $php_ldap_package_name = "${basename}-ldap"
+            $php_mysql_package_name = "${basename}-mysql"
+            $php_imap_package_name = "${basename}-imap"
             $php_gettext_package_name = 'php-gettext'
-            $php_gd_package_name = 'php5-gd'
-            $php_pgsql_package_name = 'php5-pgsql'
-            $php_xcache_package_name = 'php5-xcache'
+            $php_gd_package_name = "${basename}-gd"
+            $php_pgsql_package_name = "${basename}-pgsql"
+
+            # Xcache seems to be missing from Ubuntu 16.04
+            $php_xcache_package_name = "${basename}-xcache"
         }
         default: {
             fail("Unsupported OS: ${::osfamily}")

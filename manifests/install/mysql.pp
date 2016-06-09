@@ -7,7 +7,7 @@ class php::install::mysql {
 
     include ::php::params
 
-    package { 'php-php5-mysql':
+    package { 'php-php-mysql':
         ensure  => installed,
         name    => $::php::params::php_mysql_package_name,
         require => Class['php::install'],
