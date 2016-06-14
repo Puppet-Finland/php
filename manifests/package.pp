@@ -17,6 +17,7 @@ define php::package
     Enum['present', 'absent', 'latest'] $ensure = 'present'
 )
 {
+    include ::php
 
     # We use this function to minimize the risk of duplicate resource
     # definitions when using "external" puppet modules
