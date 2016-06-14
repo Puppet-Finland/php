@@ -18,10 +18,17 @@ class php::params {
             # FIXME: several package names missing!
         }
         'Debian': {
-            $basename = $::lsbdistcodename ? {
-                /(xenial)/ => 'php',
-                default    => 'php5',
+            case $::lsbdistcodename {
+                /(xenial)/: {
+                    $basename = 'php'
+                    $confdir = '/etc/php/7.0'
+                }
+                default: {
+                    $basename = 'php5'
+                    $confdir = '/etc/php5'
+                }
             }
+
             $php_package_name = $basename
             $php_ldap_package_name = "${basename}-ldap"
             $php_mysql_package_name = "${basename}-mysql"
@@ -40,6 +47,10 @@ class php::params {
 
             # Xcache seems to be missing from Ubuntu 16.04
             $php_xcache_package_name = "${basename}-xcache"
+
+            $phpenmod_command = "${basename}enmod"
+            $phpdismod_command = "${basename}dismod"
+
         }
         default: {
             fail("Unsupported OS: ${::osfamily}")
