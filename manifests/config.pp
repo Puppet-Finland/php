@@ -24,6 +24,12 @@ class php::config
                 mode    => '0644',
                 require => Class['php::install'],
             }
+
+            # Enable the overrides, with what is possibly a misuse of phpenmod
+            php::module { 'puppet-config-overrides':
+                ensure  => 'enabled',
+                require => File['php-puppet-config-overrides.ini'],
+            }
         }
     }
 }
