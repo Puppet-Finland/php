@@ -28,6 +28,7 @@ class php::params {
                     $confdir = '/etc/php5'
                 }
             }
+            $mods_available = "${confdir}/mods-available"
 
             $php_package_name = $basename
             $php_ldap_package_name = "${basename}-ldap"

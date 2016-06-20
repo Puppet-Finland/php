@@ -17,7 +17,7 @@ class php::config
         if $::operatingsystem == 'Ubuntu' and $::lsbdistcodename == 'trusty' {
             file { 'php-config-override-file':
                 ensure  => file,
-                path    => '/etc/php5/mods-available/puppet-config-overrides.ini',
+                path    => "${::php::params::mods_available}/puppet-config-overrides.ini",
                 content => template('php/config-overrides.ini.erb'),
                 owner   => root,
                 group   => root,
