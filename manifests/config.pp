@@ -14,13 +14,13 @@ class php::config
 
         # This should be made more generic by moving the paths to params.pp and 
         # getting rid of the operating system and codename checks.
-        if $::operatingsystem == 'Ubuntu' and $::lsbdistcodename == 'trusty' {
-            file { 'php-config-override-file':
+        if $::operatingsystem == 'Ubuntu' {
+            file { 'php-puppet-config-overrides.ini':
                 ensure  => file,
                 path    => "${::php::params::mods_available}/puppet-config-overrides.ini",
                 content => template('php/config-overrides.ini.erb'),
-                owner   => root,
-                group   => root,
+                owner   => $::os::params::adminuser,
+                group   => $::os::params::admingroup,
                 mode    => '0644',
                 require => Class['php::install'],
             }
