@@ -7,6 +7,8 @@
 #
 # [*manage*]
 #   Manage php using Puppet. Valid values are true (default) and false.
+# [*manage_config*]
+#   Manage php configuration. Valid values are true (default) and false.
 # [*config_overrides*]
 #   Configuration parameters to override. A hash of 'param_name' => 'value' 
 #   pairs. Default value is undef. Note that this mechanism is limited to Ubuntu 
@@ -33,6 +35,7 @@
 class php
 (
     $manage = true,
+    $manage_config = true,
     $config_overrides = undef
 )
 {
@@ -40,8 +43,11 @@ class php
 
     if $manage {
         include ::php::install
-        class { '::php::config':
-            config_overrides => $config_overrides,
+
+        if $manage_config {
+            class { '::php::config':
+                config_overrides => $config_overrides,
+            }
         }
     }
 }
