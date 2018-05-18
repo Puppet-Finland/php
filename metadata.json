@@ -2,7 +2,7 @@
   "name": "puppetfinland-php",
   "version": "2.3.0",
   "author": "Puppet-Finland team",
-  "license": "BSD license",
+  "license": "BSD-2-Clause",
   "summary": "Setup php",
   "source": "https://github.com/Puppet-Finland/php.git",
   "project_page": "https://github.com/Puppet-Finland/php",
