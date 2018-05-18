@@ -34,13 +34,11 @@
 # 
 class php
 (
-    $manage = true,
-    $manage_config = true,
-    $config_overrides = undef
+    Boolean        $manage = true,
+    Boolean        $manage_config = true,
+    Optional[Hash] $config_overrides = undef
 )
 {
-    validate_bool($manage)
-
     if $manage {
         include ::php::install
 

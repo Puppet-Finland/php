@@ -5,13 +5,10 @@
 #
 class php::config
 (
-    $config_overrides
+    Optional[Hash] $config_overrides = undef
 )
 {
-    if is_hash($config_overrides) {
-
-        validate_hash($config_overrides)
-
+    if $config_overrides {
         # This should be made more generic by moving the paths to params.pp and 
         # getting rid of the operating system and codename checks.
         if $::operatingsystem == 'Ubuntu' {
