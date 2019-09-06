@@ -22,14 +22,21 @@ class php::params {
                 /(xenial)/: {
                     $basename = 'php'
                     $confdir = '/etc/php/7.0'
+                    $phpenmod_command = "${basename}enmod"
+                    $phpdismod_command = "${basename}dismod"
+
                 }
                 /(bionic)/: {
                     $basename = 'php7.2'
                     $confdir = '/etc/php/7.2'
+                    $phpenmod_command = 'phpenmod'
+                    $phpdismod_command = 'phpdismod'
                 }
                 default: {
                     $basename = 'php5'
                     $confdir = '/etc/php5'
+                    $phpenmod_command = "${basename}enmod"
+                    $phpdismod_command = "${basename}dismod"
                 }
             }
             $mods_available = "${confdir}/mods-available"
@@ -52,10 +59,6 @@ class php::params {
 
             # Xcache seems to be missing from Ubuntu 16.04
             $php_xcache_package_name = "${basename}-xcache"
-
-            $phpenmod_command = "${basename}enmod"
-            $phpdismod_command = "${basename}dismod"
-
         }
         default: {
             fail("Unsupported OS: ${::osfamily}")
