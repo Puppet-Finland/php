@@ -23,6 +23,10 @@ class php::params {
                     $basename = 'php'
                     $confdir = '/etc/php/7.0'
                 }
+                /(bionic)/: {
+                    $basename = 'php7.2'
+                    $confdir = '/etc/php/7.2'
+                }
                 default: {
                     $basename = 'php5'
                     $confdir = '/etc/php5'
