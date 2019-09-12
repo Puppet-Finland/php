@@ -25,6 +25,7 @@ class php::params {
                     $phpenmod_command = "${basename}enmod"
                     $phpdismod_command = "${basename}dismod"
                     $php_mbstring_package_name = "${basename}-mbstring"
+                    $php_zip_package_name = "${basename}-zip"
                 }
                 /(bionic)/: {
                     $basename = 'php7.2'
@@ -32,6 +33,7 @@ class php::params {
                     $phpenmod_command = 'phpenmod'
                     $phpdismod_command = 'phpdismod'
                     $php_mbstring_package_name = "${basename}-mbstring"
+                    $php_zip_package_name = "${basename}-zip"
                 }
                 default: {
                     $basename = 'php5'
@@ -39,6 +41,7 @@ class php::params {
                     $phpenmod_command = "${basename}enmod"
                     $phpdismod_command = "${basename}dismod"
                     $php_mbstring_package_name = "${basename}-mbstring"
+                    $php_zip_package_name = "${basename}-zip"
                 }
             }
             $mods_available = "${confdir}/mods-available"
