@@ -24,19 +24,21 @@ class php::params {
                     $confdir = '/etc/php/7.0'
                     $phpenmod_command = "${basename}enmod"
                     $phpdismod_command = "${basename}dismod"
-
+                    $php_mbstring_package_name = "${basename}-mbstring"
                 }
                 /(bionic)/: {
                     $basename = 'php7.2'
                     $confdir = '/etc/php/7.2'
                     $phpenmod_command = 'phpenmod'
                     $phpdismod_command = 'phpdismod'
+                    $php_mbstring_package_name = "${basename}-mbstring"
                 }
                 default: {
                     $basename = 'php5'
                     $confdir = '/etc/php5'
                     $phpenmod_command = "${basename}enmod"
                     $phpdismod_command = "${basename}dismod"
+                    $php_mbstring_package_name = "${basename}-mbstring"
                 }
             }
             $mods_available = "${confdir}/mods-available"
